@@ -1,6 +1,7 @@
 package com.example.music_app.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,6 +31,11 @@ class ArtistAdapter(
 
         lblArtistName.text = artist.name.replace(" ","\n")
         llArtistCard.setOnClickListener {}
+        llArtistCard.setOnClickListener {
+            val intent = Intent(context, ArtistDetailActivity::class.java)
+            intent.putExtra("artist_id", artist.id)
+            context.startActivity(intent)
+        }
 
 
         return itemView
