@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/app_background"
+        android:layout_gravity="top|center"
+        android:scaleType="centerCrop"
+    />
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="16dp">
+
+            <EditText
+                android:id="@+id/txtSearchArtists"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/shape_rounded"
+                android:hint="@string/artist_hint"
+                android:textColor="@color/black"
+                android:paddingHorizontal="16dp"
+                android:layout_marginRight="10dp"
+            />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSearchArtists"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/ripple_button"
+                app:backgroundTint="@color/white"
+                app:icon="@drawable/baseline_search"
+                app:iconTint="@color/black"
+                app:iconSize="20dp"
+                app:iconGravity="textTop"
+            />
+
+        </LinearLayout>
+
+        <GridView
+            android:id="@+id/gvArtists"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="2"
+            android:gravity="center"
+            android:verticalSpacing="16dp"/>
+
+    </LinearLayout>
+
+</FrameLayout>
