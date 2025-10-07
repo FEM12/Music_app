@@ -1,11 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:orientation="vertical" android:padding="16dp"
-android:layout_width="match_parent" android:layout_height="match_parent">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-<TextView android:id="@+id/lblArtistName" style="@style/TextTitle"/>
-<TextView android:id="@+id/lblArtistStature" style="@style/TextBody"/>
-<TextView android:id="@+id/lblArtistNationality" style="@style/TextBody"/>
-<TextView android:id="@+id/lblArtistBirthdate" style="@style/TextBody"/>
-</LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/app_background"
+        android:layout_gravity="top|center"
+        android:scaleType="centerCrop"
+        />
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/lblArtistName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/artist_name"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:textColor="@color/white"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/lblArtistStature"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/stature_label"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/lblArtistNationality"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nationality_label"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/lblArtistBirthdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/birthdate_label"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/white"/>
+
+        <GridView
+            android:id="@+id/gvAlbums"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="2"
+            android:gravity="center"
+            android:verticalSpacing="16dp"/>
+
+    </LinearLayout>
+
+
+
+</FrameLayout>

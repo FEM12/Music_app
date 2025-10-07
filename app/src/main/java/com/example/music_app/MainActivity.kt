@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun dataLoad() {
 
-        val artistsList = dbHelper.getAll().toMutableList()
+        val artistsList = dbHelper.getAllArtists().toMutableList()
         val adapter = ArtistAdapter(this,artistsList,dbHelper)
         gvArtists.adapter = adapter
 
@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun dataFilterLoad(name: String) {
 
-        val artistList = dbHelper.getOne(name).toMutableList()
+        val artistList = dbHelper.getOneArtist(name).toMutableList()
         val adapter = ArtistAdapter(this,artistList,dbHelper)
         gvArtists.adapter = adapter
 

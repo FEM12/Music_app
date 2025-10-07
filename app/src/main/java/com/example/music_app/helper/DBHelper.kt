@@ -709,17 +709,19 @@ class DBHelper(context: Context): SQLiteOpenHelper(context,DATABASE_NAME,null,DA
         onCreate(db)
 
     }
+
     fun getAlbumById(id: Int): Album? {
+
         val db = readableDatabase
         val cursor = db.rawQuery("SELECT * FROM albums WHERE id = ?", arrayOf(id.toString()))
 
         return if (cursor.moveToFirst()) {
             val album = Album(
                 id = cursor.getInt(cursor.getColumnIndexOrThrow("id")),
+                artist_id = cursor.getInt(cursor.getColumnIndexOrThrow("artist_id")),
                 name = cursor.getString(cursor.getColumnIndexOrThrow("name")),
-                artist = cursor.getString(cursor.getColumnIndexOrThrow("artist")),
-                genre = cursor.getString(cursor.getColumnIndexOrThrow("genre")),
-                releaseDate = cursor.getString(cursor.getColumnIndexOrThrow("releaseDate"))
+                publication_date = cursor.getString(cursor.getColumnIndexOrThrow("publication_date")),
+                discography = cursor.getString(cursor.getColumnIndexOrThrow("discography"))
             )
             cursor.close()
             album
@@ -729,7 +731,7 @@ class DBHelper(context: Context): SQLiteOpenHelper(context,DATABASE_NAME,null,DA
         }
     }
 
-    fun getAll(): List<Artist> {
+    fun getAllArtists(): List<Artist> {
 
         val list = mutableListOf<Artist>()
         val db = readableDatabase
@@ -751,7 +753,56 @@ class DBHelper(context: Context): SQLiteOpenHelper(context,DATABASE_NAME,null,DA
         return list
 
     }
+
+    fun getAllAlbums(id: Int): List<Album> {
+
+        val list = mutableListOf< Album>()
+        val db = readableDatabase
+        val cursor = db.rawQuery("SELECT * FROM albums WHERE artist_id = ?",arrayOf(id.toString()))
+
+        while(cursor.moveToNext()) {
+
+            val id = cursor.getInt(cursor.getColumnIndexOrThrow("id"))
+            val artist_id = cursor.getInt(cursor.getColumnIndexOrThrow("artist_id"))
+            val name = cursor.getString(cursor.getColumnIndexOrThrow("name"))
+            val publication_date = cursor.getString(cursor.getColumnIndexOrThrow("publication_date"))
+            val discography = cursor.getString(cursor.getColumnIndexOrThrow("discography"))
+
+            list.add(Album(id,artist_id,name,publication_date,discography))
+
+        }
+
+        cursor.close()
+        return list
+
+    }
+
+    fun getAllSongs(id: Int): List<Song> {
+
+        val list = mutableListOf<Song>()
+        val db = readableDatabase
+        val cursor = db.rawQuery("SELECT * FROM songs WHERE album_id = ?",arrayOf(id.toString()))
+
+        while(cursor.moveToNext()) {
+
+            val id = cursor.getInt(cursor.getColumnIndexOrThrow("id"))
+            val album_id = cursor.getInt(cursor.getColumnIndexOrThrow("album_id"))
+            val name = cursor.getString(cursor.getColumnIndexOrThrow("name"))
+            val publication_date = cursor.getString(cursor.getColumnIndexOrThrow("publication_date"))
+            val duration = cursor.getString(cursor.getColumnIndexOrThrow("duration"))
+            val genre = cursor.getString(cursor.getColumnIndexOrThrow("genre"))
+
+            list.add(Song(id,album_id,name,publication_date,duration,genre))
+
+        }
+
+        cursor.close()
+        return list
+
+    }
+
     fun getArtistById(id: Int): Artist? {
+
         val db = readableDatabase
         val cursor = db.rawQuery("SELECT * FROM artists WHERE id = ?", arrayOf(id.toString()))
 
@@ -769,31 +820,10 @@ class DBHelper(context: Context): SQLiteOpenHelper(context,DATABASE_NAME,null,DA
             cursor.close()
             null
         }
+
     }
 
-    fun getSongById(id: Int): Song? {
-        val db = readableDatabase
-        val cursor = db.rawQuery("SELECT * FROM songs WHERE id = ?", arrayOf(id.toString()))
-
-        return if (cursor.moveToFirst()) {
-            val song = Song(
-                id = cursor.getInt(cursor.getColumnIndexOrThrow("id")),
-                title = cursor.getString(cursor.getColumnIndexOrThrow("title")),
-                artist = cursor.getString(cursor.getColumnIndexOrThrow("artist")),
-                album = cursor.getString(cursor.getColumnIndexOrThrow("album")),
-                genre = cursor.getString(cursor.getColumnIndexOrThrow("genre")),
-                duration = cursor.getString(cursor.getColumnIndexOrThrow("duration")),
-                releaseDate = cursor.getString(cursor.getColumnIndexOrThrow("releaseDate"))
-            )
-            cursor.close()
-            song
-        } else {
-            cursor.close()
-            null
-        }
-    }
-
-    fun getOne(name: String): List<Artist> {
+    fun getOneArtist(name: String): List<Artist> {
 
         val list = mutableListOf<Artist>()
         val db = readableDatabase

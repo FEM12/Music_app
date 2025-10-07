@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Music_app">
         <activity
+            android:name=".SongDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ArtistDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AlbumDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

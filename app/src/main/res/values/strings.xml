@@ -1,10 +1,12 @@
 <resources>
     <string name="app_name">Music</string>
     <string name="artist_hint">Buscar artistas</string>
+
     <string name="artist_name">Nombre</string>
     <string name="stature_label">Estatura: %s m</string>
     <string name="nationality_label">Nacionalidad: %s</string>
     <string name="birthdate_label">Fecha de nacimiento: %s</string>
+
     <string name="song_title">Título de la canción</string>
     <string name="song_artist">Artista</string>
     <string name="song_album">Álbum</string>
@@ -12,9 +14,9 @@
     <string name="song_duration">Duración</string>
     <string name="song_release_date">Fecha de lanzamiento</string>
 
-    <string name="album_name">Nombre del álbum</string>
-    <string name="album_artist">Artista</string>
-    <string name="album_genre">Género</string>
-    <string name="album_release_date">Fecha de lanzamiento</string>
+    <string name="album_name">Nombre</string>
+    <string name="album_artist">Artista: %s</string>
+    <string name="album_publication_date">Fecha: %s</string>
+    <string name="album_discography">Discografía: %s</string>
 
 </resources>

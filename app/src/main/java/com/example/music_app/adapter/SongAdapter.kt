@@ -8,16 +8,17 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.example.music_app.ArtistDetailActivity
+import com.example.music_app.AlbumDetailActivity
 import com.example.music_app.R
 import com.example.music_app.helper.DBHelper
-import com.example.music_app.model.Artist
+import com.example.music_app.model.Album
+import com.example.music_app.model.Song
 
-class ArtistAdapter(
+class SongAdapter(
     private val context: Context,
-    private val items: MutableList<Artist>,
+    private val items: MutableList<Song>,
     private val dbHelper: DBHelper
-): ArrayAdapter<Artist>(context,0,items) {
+): ArrayAdapter<Song>(context,0,items) {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
 
@@ -28,14 +29,10 @@ class ArtistAdapter(
         val llArtistCard = itemView.findViewById<LinearLayout>(R.id.llArtistCard)
         val lblArtistName = itemView.findViewById<TextView>(R.id.lblArtistName)
 
-        val artist = items[position]
+        val song = items[position]
 
-        lblArtistName.text = artist.name.replace(" ","\n")
-        llArtistCard.setOnClickListener {
-            val intent = Intent(context, ArtistDetailActivity::class.java)
-            intent.putExtra("artist_id", artist.id)
-            context.startActivity(intent)
-        }
+        lblArtistName.text = song.name.replace(" ","\n")
+        llArtistCard.setOnClickListener {}
 
 
         return itemView

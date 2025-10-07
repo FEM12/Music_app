@@ -2,10 +2,9 @@ package com.example.music_app.model
 
  data class Song(
     val id: Int,
-    val title: String,
-    val artist: String,
-    val album: String,
-    val genre: String,
+    val album_id: Int,
+    val name: String,
+    val publication_date: String,
     val duration: String,
-    val releaseDate: String
+    val genre: String,
 )
