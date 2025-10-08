@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.music_app.AlbumDetailActivity
 import com.example.music_app.R
+import com.example.music_app.SongDetailActivity
 import com.example.music_app.helper.DBHelper
 import com.example.music_app.model.Album
 import com.example.music_app.model.Song
@@ -32,7 +33,13 @@ class SongAdapter(
         val song = items[position]
 
         lblArtistName.text = song.name.replace(" ","\n")
-        llArtistCard.setOnClickListener {}
+        llArtistCard.setOnClickListener {
+
+            val intent = Intent(context, SongDetailActivity::class.java)
+            intent.putExtra("song_id", song.id)
+            context.startActivity(intent)
+
+        }
 
 
         return itemView

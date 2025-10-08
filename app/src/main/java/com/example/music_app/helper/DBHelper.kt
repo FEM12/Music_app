@@ -801,6 +801,29 @@ class DBHelper(context: Context): SQLiteOpenHelper(context,DATABASE_NAME,null,DA
 
     }
 
+    fun getSongById(id: Int): Song? {
+
+        val db = readableDatabase
+        val cursor = db.rawQuery("SELECT * FROM songs WHERE id = ?",arrayOf(id.toString()))
+
+        return if (cursor.moveToFirst()) {
+            val song = Song(
+                id = cursor.getInt(cursor.getColumnIndexOrThrow("id")),
+                album_id = cursor.getInt(cursor.getColumnIndexOrThrow("album_id")),
+                name = cursor.getString(cursor.getColumnIndexOrThrow("name")),
+                publication_date = cursor.getString(cursor.getColumnIndexOrThrow("publication_date")),
+                duration = cursor.getString(cursor.getColumnIndexOrThrow("duration")),
+                genre = cursor.getString(cursor.getColumnIndexOrThrow("genre"))
+            )
+            cursor.close()
+            song
+        } else {
+            cursor.close()
+            null
+        }
+
+    }
+
     fun getArtistById(id: Int): Artist? {
 
         val db = readableDatabase

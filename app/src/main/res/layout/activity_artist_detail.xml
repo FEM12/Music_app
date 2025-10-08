@@ -24,22 +24,22 @@
             android:text="@string/artist_name"
             android:textStyle="bold"
             android:textSize="30dp"
-            android:textColor="@color/white"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="16dp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/lblArtistStature"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/stature_label"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/lblArtistNationality"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/nationality_label"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/lblArtistBirthdate"
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:text="@string/birthdate_label"
             android:layout_marginBottom="16dp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
 
         <GridView
             android:id="@+id/gvAlbums"

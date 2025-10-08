@@ -24,14 +24,14 @@
             android:textStyle="bold"
             android:textSize="30dp"
             android:paddingTop="16dp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/lblPublicationDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/album_publication_date"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/lblDiscography"
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:text="@string/album_discography"
             android:layout_marginBottom="16dp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
 
         <GridView
             android:id="@+id/gvSongs"
